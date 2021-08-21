@@ -12,7 +12,9 @@ namespace Pte.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            string Name = "This is Demo";
+
+            return View();             
         }
         public IActionResult Login()
         {
