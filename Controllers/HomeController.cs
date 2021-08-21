@@ -20,7 +20,7 @@ namespace Pte.Controllers
 
         public IActionResult Index()
         {
-            string model = "";
+            string model = "Deepak Rana";
             return View();
         }
 
