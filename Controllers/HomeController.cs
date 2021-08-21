@@ -20,8 +20,7 @@ namespace Pte.Controllers
 
         public IActionResult Index()
         {
-            //Akash first commit
-
+            string model = "";
             return View();
         }
 
