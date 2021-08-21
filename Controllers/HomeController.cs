@@ -20,6 +20,7 @@ namespace Pte.Controllers
 
         public IActionResult Index()
         {
+            string model = "";
             return View();
         }
 
