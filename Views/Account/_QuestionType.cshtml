@@ -1,0 +1,78 @@
+﻿@model Pte.Models.QuestionType
+@{ 
+    Layout = null;
+}
+<style>
+    .modal-right .modal-dialog
+    {
+        width:700px!important;
+    }
+</style>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Name</label>
+            @Html.TextBoxFor(var => var.vName, new { @class = "form-control", placeholder = "Enter Name" })
+            @Html.ValidationMessageFor(var => var.vName, null, new { @class = "text-danger" })
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Selection Type</label>
+            @Html.DropDownListFor(var => var.iSectionTypeID, Model.SectionTypeList, "Selection Type", new { @class = "form-control", placeholder = "Your Name" })
+            @Html.ValidationMessageFor(var => var.iSectionTypeID, null, new { @class = "text-danger" })
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Question Format</label>
+            @Html.TextBoxFor(var => var.vQuestionFormat, new { @class = "form-control", placeholder = "Question Format" })
+            @Html.ValidationMessageFor(var => var.vQuestionFormat, null, new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>Instruction</label>
+            @Html.TextAreaFor(var => var.vInstructions, new { @class = "form-control", placeholder = "Question Instructions" })
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Question Format</label>
+            @Html.DropDownListFor(var => var.iQuestionFormat, Model.QuestionFormatList, "Question Format", new { @class = "form-control", placeholder = "Your Name" })
+
+            @Html.ValidationMessageFor(var => var.iQuestionFormat, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Answer Format</label>
+            @Html.DropDownListFor(var => var.iAnswerFormat, Model.AnswerFormatList, "Answer Format", new { @class = "form-control", placeholder = "Your Name" })
+
+            @Html.ValidationMessageFor(var => var.iAnswerFormat, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>No of Question</label>
+            @Html.TextBoxFor(var => var.TotalQuestions, new { @class = "form-control", placeholder = "No of Questions", @type = "number" })
+            @Html.ValidationMessageFor(var => var.TotalQuestions, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Marks</label>
+            @Html.TextBoxFor(var => var.iMarks, new { @class = "form-control", placeholder = "Total Marks ",@type="number" })
+            @Html.ValidationMessageFor(var => var.iMarks, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-12">
+        <button class="waves-effect waves-light btn mb-5 bg-gradient-success">Submit</button>
+    </div>
+
+</div>

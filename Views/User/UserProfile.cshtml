@@ -1,0 +1,170 @@
+﻿@model Pte.Models.Users
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<div class="content-header">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="page-title">Profile</h3>
+            <div class="d-inline-block align-items-center">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                        <li class="breadcrumb-item" aria-current="page">User</li>
+                        <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+</div>
+<section class="content">
+
+    <div class="row">
+        <div class="col-12 col-lg-7 col-xl-8">
+
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li><a href="#usertimeline" data-toggle="tab" class="active">Info</a></li>
+                    <li><a class="" href="#activity" data-toggle="tab">Recover Password</a></li>
+                    <li><a href="#settings" data-toggle="tab" class="">Billing History</a></li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div class="tab-pane active" id="usertimeline">
+                        @using (Html.BeginForm("UpdateProfile", "User"))
+                        {
+                            <div class="publisher publisher-multi bg-white b-1 mb-30">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            @Html.TextBoxFor(var => var.vName, new { @class = "form-control", placeholder = "Your Name" })
+                                            @Html.ValidationMessageFor(var => var.vName, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Username</label>
+                                            @Html.TextBoxFor(var => var.vUsername, new { @class = "form-control", placeholder = "Your Name" })
+                                            @Html.ValidationMessageFor(var => var.vUsername, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            @Html.TextBoxFor(var => var.vEmail, new { @class = "form-control", placeholder = "Your Name" })
+                                            @Html.ValidationMessageFor(var => var.vEmail, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Phone</label>
+                                            @Html.TextBoxFor(var => var.vPhoneNo, new { @class = "form-control", placeholder = "Your Name" })
+                                            @Html.ValidationMessageFor(var => var.vPhoneNo, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+
+                    </div>
+                    <!-- /.tab-pane -->
+
+                    <div class="tab-pane" id="activity">
+
+                        <div class="box p-15">
+                            @using (Html.BeginForm("ChangePassword", "User"))
+                            {
+                                <div class="publisher publisher-multi bg-white b-1 mb-30">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Current Password</label>
+                                                <input type="text" class="form-control" name="OldPassword" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>New Password</label>
+                                                <input type="text" class="form-control" name="NewPassword" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Re Enter Password</label>
+                                                <input type="text" class="form-control" name="ConfirmPassword" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn btn-primary">Update Password</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            }
+                            <!-- /.post -->
+                        </div>
+
+                    </div>
+                    <!-- /.tab-pane -->
+
+                    <div class="tab-pane" id="settings">
+
+
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-12 col-lg-5 col-xl-4">
+            <div class="box box-widget widget-user">
+                <!-- Add the bg color to the header using any of the bg-* classes -->
+                <div class="widget-user-header bg-black" style="background: url('../../Content/images/gallery/full/10.jpg') center center;">
+                    <h3 class="widget-user-username">Michael Jorden</h3>
+                    <h6 class="widget-user-desc">Designer</h6>
+                </div>
+                <div class="widget-user-image">
+                    <img class="rounded-circle" src="../../Content/images/user3-128x128.jpg" alt="User Avatar">
+                </div>
+
+            </div>
+            <div class="box">
+                <div class="box-body box-profile">
+                    <div class="row">
+                        <div class="col-12">
+                            <div>
+                                <p>Email :<span class="text-gray pl-10">@Model.vEmail</span> </p>
+                                <p>Phone :<span class="text-gray pl-10">@Model.vPhoneNo</span></p>
+                                <p>Address :<span class="text-gray pl-10">@Model.vAddress</span></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+</section>

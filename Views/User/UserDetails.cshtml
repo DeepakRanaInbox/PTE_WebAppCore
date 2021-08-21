@@ -1,0 +1,134 @@
+﻿@model Pte.Models.Users
+@{
+    ViewBag.Title = "UserDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    th,td{
+        font-size:13px!important;
+    }
+    #example5_wrapper{
+        padding:0px!important;
+    }
+    .table > tbody > tr > td, .table > tbody > tr > th
+    {
+        padding:0.5rem!important;
+    }
+    .checkbox{
+        position:relative!important;
+        left:0px!important;
+        opacity:1!important;
+    }
+</style>
+<div class="content-header">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="page-title">General Form Elements</h3>
+            <div class="d-inline-block align-items-center">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                        <li class="breadcrumb-item" aria-current="page">User</li>
+                        <li class="breadcrumb-item active" aria-current="page">UserDetails</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+</div>
+<section class="content">
+    <div class="col-lg-12 col-12">
+        <div class="box">
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table id="example5" class="table table-bordered table-striped" style="width:100%; padding:0px!important">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>UserName</th>
+                                <th>Expire</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                                <th>Test</th>
+                                <th>Preformance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.UserList)
+                            {
+                            <tr>
+                                <td>@item.vName</td>
+                                <td>@item.vUsername</td>
+                                <td><span class="badge badge-pill badge-danger">Expire</span></td>
+                                <td>
+                                    <span class="badge badge-pill badge-danger">Expire</span>
+
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0)" class="text-info mr-10" data-toggle="tooltip" data-original-title="Edit">
+                                        <i class="ti-marker-alt"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" class="text-danger" data-original-title="Delete" data-toggle="tooltip">
+                                        <i class="ti-trash"></i>
+                                    </a>
+                                    <button type="button" class="waves-effect waves-light btn btn-info btn-xs bg-gradient-danger">Renew</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="waves-effect waves-light btn btn-info btn-xs">Add</button>
+                                </td>
+                                <td><button type="button" class="waves-effect waves-light btn btn-dark btn-xs">View</button></td>
+                            </tr>
+                            }
+                            
+                            <tr>
+                                <td>Garrett Winters</td>
+                                <td>Accountant</td>
+                                <td><span class="badge badge-pill badge-info">Pending</span></td>
+                                <td><span class="badge badge-pill badge-danger">Expire</span></td>
+                                <td>
+                                    <a href="@Url.Action("_QuestionType","Account")" class="text-info mr-10 OpenDocument" id="Question Type" data-toggle="tooltip" data-original-title="Edit">
+                                        <i class="ti-marker-alt"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" class="text-info mr-10" data-toggle="tooltip" data-original-title="Edit">
+                                        <i class="ti-marker-alt"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" class="text-danger" data-original-title="Delete" data-toggle="tooltip">
+                                        <i class="ti-trash"></i>
+                                    </a>
+                                    <button type="button" class="waves-effect waves-light btn btn-info btn-xs bg-gradient-danger">Renew</button>
+                                </td>
+                                <td><button type="button" class="waves-effect waves-light btn btn-info btn-xs">Add</button></td>
+                                <td><button type="button" class="waves-effect waves-light btn btn-dark btn-xs">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>Ashton Cox</td>
+                                <td>Junior Technical Author</td>
+                                <td><span class="badge badge-pill badge-danger">Expire</span></td>
+                                <td><input type="checkbox" id="basic_checkbox_1" checked /></td>
+                                <td>
+                                    <a href="javascript:void(0)" class="text-info mr-10" data-toggle="tooltip" data-original-title="Edit">
+                                        <i class="ti-marker-alt"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" class="text-danger" data-original-title="Delete" data-toggle="tooltip">
+                                        <i class="ti-trash"></i>
+                                    </a>
+                                    <button type="button" class="waves-effect waves-light btn btn-info btn-xs bg-gradient-danger">Renew</button>
+                                </td>
+                                <td><button type="button" class="waves-effect waves-light btn btn-info btn-xs">Add</button></td>
+                                <td><button type="button" class="waves-effect waves-light btn btn-dark btn-xs">View</button></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Name</th>
+                                <th>UserName</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+

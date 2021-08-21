@@ -1,0 +1,88 @@
+﻿@model Pte.Models.InquiryDTO
+@{ 
+    Layout = null;
+}
+<style>
+    .modal-right .modal-dialog {
+        width: 700px !important;
+    }
+</style>
+<div class="box bg-primary-light">
+    <div class="">
+        <div class="flex-grow-1 p-10 flex-grow-1 bg-img dask-bg bg-none-md" style="background-position: right bottom; background-size: auto 100%;">
+            <div class="row">
+                <div class="col-12 col-xl-12">
+                    <h2>Welcome back, <strong>@Model.vName!</strong></h2>
+
+                    <p class="text-dark my-10 font-size-16">
+                        Current Status <strong class="text-warning">@Model.vStatus</strong> of the Enquiry.
+                    </p>
+                    <address>
+                       @Model.vAddress
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+
+    <div class="col-md-6">
+        <div class="media-list media-list-hover media-list-divided">
+            <a class="media media-single" href="#">
+                <span class="title">Father Name </span>
+                <span>@Model.vFather_Name</span>
+            </a>
+            <a class="media media-single" href="#">
+                <span class="title">Email </span>
+                <span>@Model.vEmail</span>
+            </a>
+
+            <a class="media media-single" href="#">
+                <span class="title">Phone </span>
+                <span>@Model.vPhoneNo</span>
+            </a>
+            <a class="media media-single" href="#">
+                <span class="title">DOB </span>
+                <span>@Model.vDOB</span>
+            </a>
+            <a class="media media-single" href="#">
+                <span class="title">Gender </span>
+                <span>@Model.Gender</span>
+            </a>
+            <a class="media media-single" href="#">
+                <span class="title">Marital Status </span>
+                <span>@Model.MaritalStatus</span>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="media-list media-list-hover media-list-divided">
+
+
+
+           
+            <a class="media media-single" href="#">
+                <span class="title">Reference </span>
+                <span>@Model.Reference</span>
+            </a>
+            <a class="media media-single" href="#">
+                <span class="title">Countries </span>
+                <span></span>
+            </a>
+            <a class="media media-single" href="#">
+                <span class="title">Enquiry On </span>
+                <span>@Model.InquiryOn</span>
+            </a>
+            <a class="media media-single" href="#">
+                <span class="title">Enquiry By </span>
+                <span>@Model.InquiryBy</span>
+            </a>
+            <a class="media media-single" href="#">
+                <span class="title">Remarks </span>
+                <span class="">@Model.vRemarks</span>
+            </a>
+        </div>
+    </div>
+</div>

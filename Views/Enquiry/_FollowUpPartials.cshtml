@@ -1,0 +1,102 @@
+﻿@model Pte.Models.FollowupHistoryModel
+@{
+    Layout = null;
+}
+<style>
+    .modal-right .modal-dialog {
+        width: 700px !important;
+    }
+    .datepicker > div
+    {
+        display:block;
+    }
+    .datepicker td, .datepicker th {
+        text-align: center;
+        width: 25px!important;
+        height: 25px!important;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        border: none;
+    }
+    .datepicker
+    {
+        padding:10px!important
+    }
+</style>
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>Status</label>
+            @Html.DropDownListFor(var => var.iStatusID, Model.StatusList, "Select Status", new { @class = "form-control" })
+            @Html.ValidationMessageFor(var => var.iStatusID, null, new { @class = "text-danger" })
+
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>FollowUp Date</label>
+            @Html.TextBoxFor(var => var.dFollowupOn, new { @class = "form-control", placeholder = "Select Date", @id= "datepicker" })
+            @Html.ValidationMessageFor(var => var.dFollowupOn, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Remarks</label>
+            @Html.TextBoxFor(var => var.vRemarks, new { @class = "form-control", placeholder = "Enter Current Remarks" })
+            @Html.ValidationMessageFor(var => var.vRemarks, null, new { @class = "text-danger" })
+
+        </div>
+    </div>
+    <div class="col-md-12">
+        <button class="waves-effect waves-light btn mb-5 bg-gradient-success">Submit</button>
+    </div>
+    <div class="col-md-12">
+        <hr/>
+    </div>
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table id="example5" class="table table-bordered table-striped" style="width:100%; padding:0px!important">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <td>By</td>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model._followupHistoryModelsList)
+                    {
+                        <tr>
+                            <td>@item.vStatus</td>
+                            <td>@item.dFollowupOn</td>
+                            <td>@item.FollowupBy</td>
+                            <td>@item.vRemarks</td>
+                        </tr>
+                    }
+
+                    <tr>
+                        <td>Garrett Winters</td>
+                        <td>abc@gmail.com</td>
+                        <td>9000000000</td>
+                        <td>01-01-2021</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Garrett Winters</td>
+                        <td>abc@gmail.com</td>
+                        <td>9000000000</td>
+                        <td>01-01-2021</td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    $('#datepicker').datepicker({
+        autoclose: true
+    });
+</script>

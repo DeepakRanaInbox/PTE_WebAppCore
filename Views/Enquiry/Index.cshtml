@@ -1,0 +1,170 @@
+﻿@model Pte.Models.InquiryModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<div class="content-header">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="page-title">Enquiry Form</h3>
+            <div class="d-inline-block align-items-center">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                        <li class="breadcrumb-item" aria-current="page">User</li>
+                        <li class="breadcrumb-item active" aria-current="page">Enquiry</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+</div>
+<section class="content">
+    <div class="col-lg-12 col-12">
+        <div class="box">
+
+            <!-- /.box-header -->
+            @using (Html.BeginForm("Create", "Enquiry", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Name</label>
+                                @Html.TextBoxFor(var => var.vName, new { @class = "form-control", placeholder = "Your Name" })
+                                @Html.ValidationMessageFor(var => var.vName, null, new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Father Name</label>
+                                @Html.TextBoxFor(var => var.vFather_Name, new { @class = "form-control", placeholder = "Enter Father Name" })
+                                @Html.ValidationMessageFor(var => var.vFather_Name, null, new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Email address</label>
+                                @Html.TextBoxFor(var => var.vEmail, new { @class = "form-control", placeholder = "Enter Email" })
+                                @Html.ValidationMessageFor(var => var.vEmail, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Phone</label>
+                                @Html.TextBoxFor(var => var.vPhoneNo, new { @class = "form-control", placeholder = "Enter Phone" })
+                                @Html.ValidationMessageFor(var => var.vPhoneNo, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>DOB</label>
+                                @Html.TextBoxFor(var => var.vDOB, new { @class = "form-control", placeholder = "Enter DOB" })
+                                @Html.ValidationMessageFor(var => var.vDOB, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <div class="custom-file">
+                                    <input name="Gender" type="radio" value="male" id="radio_1" checked />
+                                    <label for="radio_1">Male</label>
+                                    <input name="Gender" type="radio" value="female" id="radio_2" />
+                                    <label for="radio_2">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Follow Up Date</label>
+                                @Html.TextBoxFor(var => var.dFollowupDate, new { @class = "form-control", placeholder = "Follow Up Date" })
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>Address</label>
+                                @Html.TextBoxFor(var => var.vAddress, new { @class = "form-control", placeholder = "Enter Address" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Reference Id</label>
+                                @Html.DropDownListFor(var=>var.iReferenceID, Model.ReferenceList,"Select Reference", new { @class = "form-control", multiple = "multiple", data_placeholder = "Select a State" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Status</label>
+                                @Html.DropDownListFor(var=>var.iStatusID, Model.StatusList,"Select Status", new { @class = "form-control", multiple = "multiple", data_placeholder = "Select a State"})
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Country</label>
+                                @Html.DropDownList("CountryItem", Model.CountryList, new { @class = "form-control select2", multiple = "multiple", data_placeholder = "Select a Country", @id = "countryId" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Service</label>
+                                @Html.DropDownList("ServiceItem", Model.ServiceList, new { @class = "form-control select2", multiple = "multiple", data_placeholder = "Select a Service", @id = "serviceId" })
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>Remarks</label>
+                                @Html.TextBoxFor(var => var.vRemarks, new { @class = "form-control", placeholder = "Enter Remarks" })
+                            </div>
+                        </div>
+                        @Html.HiddenFor(var => var.iCountryId)
+                        @Html.HiddenFor(var => var.iServiceId)
+                    </div>
+                    
+
+
+
+
+
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
+                        <i class="ti-trash"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-rounded btn-primary btn-outline">
+                        <i class="ti-save-alt"></i> Save
+                    </button>
+                </div>
+
+            }
+        </div>
+        <!-- /.box -->
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+      
+        $("#countryId").change(function () {
+            $("#iCountryId").empty();
+            //console.log($("#statusId").select2("val"));
+            $("#iCountryId").val($("#countryId").select2("val"))
+        })
+        $("#serviceId").change(function () {
+            $("#iServiceId").empty();
+            //console.log($("#statusId").select2("val"));
+            $("#iServiceId").val($("#serviceId").select2("val"))
+        })
+      
+
+    })
+</script>
+

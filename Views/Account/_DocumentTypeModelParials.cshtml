@@ -1,0 +1,30 @@
+﻿@model Pte.Models.DocumentTypeModel
+@{
+    Layout = null;
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>Name</label>
+            @Html.TextBoxFor(var => var.vName, new { @class = "form-control", placeholder = "Enter Name" })
+            @Html.ValidationMessageFor(var => var.vName, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>Service List</label>
+            @Html.DropDownListFor(var => var.vName,Model.ServiceList,"Select Service List", new { @class = "form-control", placeholder = "Your Name" })
+            @Html.ValidationMessageFor(var => var.vName, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>Remarks</label>
+            @Html.TextAreaFor(var => var.vRemarks, new { @class = "form-control", placeholder = "Enter Remarks" })
+            @Html.ValidationMessageFor(var => var.vRemarks, null, new { @class = "text-danger" })
+        </div>
+    </div>
+</div>
