@@ -21,6 +21,7 @@ namespace Pte.Controllers
         public IActionResult Index()
         {
             string model = "";
+            string Akash = "Hello Akash";
             return View();
         }
 
